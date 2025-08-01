@@ -1,17 +1,4 @@
-function doGet(e) {
-  const allowedRef = "https://ваш-домен.ру";
-  const key = e.parameter.key;
-
-  if (e.parameter.action === "get" && key === "секрет123") {
-    return ContentService.createTextOutput(JSON.stringify(getData()))
-      .setMimeType(ContentService.MimeType.JSON);
-  } else {
-    return ContentService.createTextOutput("403 Forbidden");
-  }
-}
-
-
-const SHEET_API_URL = 'https://script.google.com/macros/s/AKfycbzeM58wRBplumti9Zz6d-jNDEvxBF7id_fwaRUcLF1HfX8Ku6aVXhozBPpeCzIfHfJQ/exec?action=get&key=секрет123';
+const SHEET_API_URL = 'https://script.google.com/macros/s/AKfycbzeM58wRBplumti9Zz6d-jNDEvxBF7id_fwaRUcLF1HfX8Ku6aVXhozBPpeCzIfHfJQ/exec';
 
 let allCards = [];
 let selectedTopics = [];
