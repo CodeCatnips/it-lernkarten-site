@@ -20,6 +20,15 @@
 </head>
 <body>
 
+  <script>
+    const password = prompt("🔒 Zugangscode erforderlich:");
+    if (password !== "meinSicheresPasswort") {
+      alert("🚫 Zugriff verweigert.");
+      window.location.href = "/";
+    }
+  </script>
+  
+
   <div class="container">
     <aside id="sidebar">
       <h2>Themen</h2>
