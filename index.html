@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  script-src 'self' https://script.google.com;
+  style-src 'self' 'unsafe-inline';
+  font-src 'self';
+  img-src 'self' data:;
+">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="X-XSS-Protection" content="1; mode=block">
+
+  <title>Trainingskarten</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="container">
+  <aside id="sidebar">
+    <h2>Themen</h2>
+    <p class="hint">*Klicke auf ein Thema, um die Karten zu laden.</p>
+    <div class="topic-container">
+      <p class="hint desktop-only"><strong>Mehrfachauswahl:</strong> <kbd>Ctrl</kbd> + Klick</p>
+      <ul id="topic-list"></ul>
+    </div>
+  </aside>
+
+<main id="main">
+  <div class="card-wrapper">
+    <div class="card" id="flashcard">
+      <div class="card-inner">
+        <div class="card-front" id="card-question">Lade...</div>
+        <div class="card-back" id="card-answer">Antwort</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="button-group">
+    <button onclick="previousCard()">Vorherige</button>
+    <button onclick="flipCard()">Karte drehen</button>
+    <button onclick="nextCard()">Nächste</button>
+  </div>
+</main>
+</div>
+
+  <footer>
+    <p>Mit Liebe programmiert von <strong>CodeCatnip</strong></p>
+  </footer>
+
+  <script src="script-public.js"></script>
+</body>
+</html>

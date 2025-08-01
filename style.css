@@ -1,0 +1,338 @@
+/* Общий стиль */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(#e6f0e9, #d8e3dc);
+  color: #2c3e50;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Контейнер */
+.container {
+  flex: 1;
+  display: flex;
+}
+
+.topic-container {
+  border: 2px solid #b3c6b3;
+  border-radius: 12px;
+  padding: 12px;
+  background-color: #ecf2ec;
+}
+
+.hint {
+  font-size: 13px;
+  color: #446655;
+  margin: 0 0 8px 0;
+  padding: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-family: monospace;
+  background-color: #d8e3dc;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  box-shadow: inset 0 -1px 0 #999;
+}
+
+
+/* Sidebar */
+#sidebar {
+  width: 20%;
+  background: #dde7dd;
+  padding: 20px;
+  border-right: 1px solid #c0ccc0;
+  box-sizing: border-box;
+}
+
+#sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+#topic-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#topic-list li {
+  background: #cbd8c7;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+#topic-list li:hover {
+  background: #9fb59f;
+  color: white;
+}
+
+#topic-list li.active {
+  background: #7d9e7d;
+  color: white;
+}
+
+/* Main Content */
+#main {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://images.wallpaperscraft.ru/image/single/les_tuman_derevia_141896_1920x1080.jpg");
+  background-size: 120% 120%;
+  background-repeat: no-repeat;
+  animation: move-bg 120s ease-in-out infinite;
+}
+
+@keyframes move-bg {
+  0% {
+    background-position: 0%, 25%;
+    background-size: 120% 120%;
+  }
+  25% {
+  background-position: 50%, 0%;
+  background-size: 130% 130%; 
+  }
+  50% {
+    background-position: 0%, 100%;
+    background-size: 170% 170%; 
+  }
+  75% {
+    background-position: 50%, 0%;
+    background-size: 130% 130%;
+  }  
+  100% {
+    background-position: 0%, 25%;
+    background-size: 120% 120%;
+  }
+}
+
+/* Flashcard */
+.card-wrapper {
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.card {
+  width: 100%;
+  max-width: 450px;
+  height: 250px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  padding: 16px;
+  font-size: 18px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.card-front {
+  background: #f1f7f3;
+}
+
+.card-back {
+  background: #d1ddd4;
+  transform: rotateY(180deg);
+}
+
+/* Кнопки */
+.button-group {
+  text-align: center;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 20px;
+  background: #9fb59f;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #7d9e7d;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 16px;
+  background: #dde7dd;
+  color: #556b5d;
+  font-size: 14px;
+  border-top: 1px solid #c0ccc0;
+}
+
+.desktop-only {
+  display: block;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .desktop-only {
+  display: none;
+  }
+
+  #sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #c0ccc0;
+    padding: 12px;
+  }
+
+  #sidebar h2 {
+    font-size: 16px;
+  }
+
+  #main {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Центровка по вертикали */
+    background-image: url("https://images.wallpaperscraft.ru/image/single/les_tuman_derevia_141896_1920x1080.jpg");
+    background-size: auto;
+    background-repeat: no-repeat;
+    animation: none;
+    min-height: 100vh; /* важно для мобильных устройств */
+}
+
+
+  #topic-list {
+  max-height: 300px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  }
+
+  #topic-list li {
+  margin-bottom: 6px;
+}
+
+
+.card {
+  width: 90%;
+  max-width: 450px;
+  height: 250px;
+  margin: 0 auto; /* горизонтальное центрирование */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+  .button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  button {
+    width: 100%;
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .card-front,
+  .card-back {
+    font-size: 16px;
+    padding: 16px;
+    max-width: 450px;
+    height: 250px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hint {
+    font-size: 12px;
+  }
+
+/* .suggestions {
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: absolute;
+  background: white;
+  width: 200px;
+  z-index: 10;
+}  
+.suggestions li {
+  padding: 8px 12px;
+  cursor: pointer;
+} 
+.suggestions li:hover {
+  background-color: #eee;
+} 
+input, textarea {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 12px;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #b4c9b9;
+  border-radius: 8px;
+  background: #f5f9f6;
+}
+*/
+}
+
+@media (max-width: 1000px) {
+  .container {
+    flex-direction: column;
+  }
+
+  #sidebar {
+    width: 100%;
+  }
+}
+
+
+
+
